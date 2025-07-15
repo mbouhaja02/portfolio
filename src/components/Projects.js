@@ -1,184 +1,293 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import viruswareImage from '../assets/virusware.jpeg';
+import carpooling from '../assets/carpooling.jpg';
+import ecc from '../assets/ecc.png';
+import quantum from '../assets/image-of-quantum-computing.jpg';
+import zfe from '../assets/ZFE-logo.png'
+import mansuba from '../assets/Chaturanga_Chess_Set.jpg';
+import amazones from '../assets/game_of_the_amazones.jpeg';
+import towerdefense from '../assets/landscape_comp.jpeg';
+import airfoil from '../assets/airfoil.png'
+import qiskit from '../assets/qiskit.png'
+import malware from '../assets/malware_detection.jpg'
+import gogame from '../assets/Go_game.jpg'
+/**
+ * --------------------------------------------------------------------
+ * Projects – Nested 2x2 Matrix Design
+ * --------------------------------------------------------------------
+ * ▸ Main 2x2 grid for themes (Games, Dev, Cyber, Research).
+ * ▸ Within each theme, a nested 2x2 grid displays up to 4 projects.
+ * ▸ Projects are displayed clearly without internal scrolling for visibility.
+ * ▸ Each card uses an Unsplash hero image + zoom-in effect.
+ * ▸ Hover OR click ➜ details overlay with description & skills.
+ * ▸ Dark-mode ready, framer-motion animations.
+ * --------------------------------------------------------------------
+ */
 
-const Projects = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.1 });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  };
-
-  const projects = [
+const allProjects = [
   {
-    title: "Malware detection using machine learning",
-    date: "Mai 2024 - Sept. 2024",
-    description: `Passionné par la cybersécurité et l'IA, je travaille sur un projet de détection de malwares utilisant des techniques de machine learning. En analysant des ensembles de données de signatures de malwares et de comportements suspects, j'explore des algorithmes avancés comme les forêts aléatoires et les réseaux de neurones. Bien que le modèle soit prometteur, il nécessite encore des améliorations pour atteindre une efficacité optimale.`,
-    skills: [
-      "Cybersécurité",
-      "Intelligence artificielle (IA)",
-      "Réseaux de neurones artificiels",
-      "Python",
-      "Traitement des données",
-      "Analyse des logiciels malveillants",
-      "Détection de logiciels malveillants"
-    ]
+    title: 'Malware Detection with ML',
+    date: 'May 2024 – Sep 2024',
+    description: "Malware detection model utilizing Random Forests and Neural Networks (VirusTotal dataset).",
+    skills: ['Python', 'Scikit-learn', 'Cyber Security'],
+    image: malware,
+    theme: 'Cyber'
   },
   {
-    title: "Implementing Strategies for Confusion Matrix Comparison in Supervised Learning",
-    date: "Déc. 2023 - Mai 2024",
-    description: `Engaged in a research project at LaBRI as part of my academic journey at ENSEIRB-MATMECA. Implementing Strategies for Confusion Matrix Comparison in Supervised Learning.`,
-    skills: ["Machine Learning", "JavaScript", "D3.js", "Python"]
+    title: 'Post-Quantum ECC (TIPE)',
+    date: 'Dec 2021 – Jun 2022',
+    description: "Quantum-resistant Elliptic Curve Cryptography algorithm, including benchmarks and security evaluation.",
+    skills: ['ECC', 'PQ-Crypto', 'C++'],
+    image: quantum,
+    theme: 'Cyber'
   },
   {
-    title: "Note de synthèse (Informatique Quantique)",
-    date: "Févr. 2024 - Mai 2024",
-    description: `Animée par ma passion pour le domaine quantique et la sécurité, j'ai collaboré en binôme pour rédiger une note de synthèse sur un article scientifique portant sur les algorithmes quantiques. Nous avons conçu des circuits quantiques et évalué l'efficacité de l'algorithme de Shor avec Qiskit (IBM).`,
-    skills: ["Qiskit", "Informatique quantique"]
+    title: 'Security Analysis Tool',
+    date: 'Jan 2023 - Mar 2023',
+    description: "Developed a Python tool for automated vulnerability scanning and report generation.",
+    skills: ['Python', 'Nmap', 'Security'],
+    image: 'https://images.unsplash.com/photo-1563206698-da2373fde39f?auto=format&fit=crop&w=960&q=60',
+    theme: 'Cyber'
   },
   {
-    title: "Projet de robotique",
-    date: "Mars 2024 - Mai 2024",
-    description: `Engagé dans un projet de robotique, j'ai contribué à l'implémentation d'un algorithme en Python permettant à notre robot de se déplacer de manière autonome et à distance.`,
-    skills: ["Robotique", "Python"]
+    title: 'Confusion-Matrix Analytics',
+    date: 'Dec 2023 – May 2024',
+    description: "Hellinger / K-L distance for comparing supervised model performance, visualized with D3.js.",
+    skills: ['D3.js', 'Statistics', 'Python'],
+    image: 'https://images.unsplash.com/photo-1534751516642-a1af1efbab31?auto=format&fit=crop&w=960&q=60',
+    theme: 'Research (Quantum)'
   },
   {
-    title: "User-Space Threading Library (C Language)",
-    date: "Mars 2024 - Mai 2024",
-    description: `Développement d'une bibliothèque de threads en espace utilisateur en langage C.`,
-    skills: ["C"]
+    title: 'Quantum Circuit Review (Shor)',
+    date: 'Feb 2024 – May 2024',
+    description: "Study and optimization of Shor's algorithm using Qiskit (5 qubits).",
+    skills: ['Qiskit', 'Quantum', 'Shor'],
+    image: qiskit,
+    theme: 'Research (Quantum)'
   },
   {
-    title: "Web Application Development for Student Carpooling",
-    date: "Oct. 2023 - Déc. 2023",
-    description: `Développement d'une application web de covoiturage étudiant.`,
-    skills: ["SQL", "PhpMyAdmin", "XAMPP"]
+    title: 'Airfoil CFD & Pressure Maps',
+    date: 'Apr 2023',
+    description: "Aerodynamic airfoil optimization using a custom CFD solver and pressure map visualization.",
+    skills: ['NumPy', 'CFD', 'Matplotlib'],
+    image: airfoil,
+    theme: 'Research (Quantum)'
   },
   {
-    title: "The game of the amazons",
-    date: "Févr. 2023 - Mai 2023",
-    description: `Implémentation du jeu des Amazones en langage C, un jeu abstrait à deux joueurs sur plateau.`,
-    skills: ["C"]
+    title: 'Image Compression via SVD',
+    date: 'Mar 2023',
+    description: "Dimensionality reduction through SVD factorization with automatic optimal rank selection.",
+    skills: ['SVD', 'NumPy', 'Pillow'],
+    image: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=960&q=60',
+    theme: 'Research (Quantum)'
   },
   {
-    title: "Tower Defense Game Development (TypeScript, JavaScript)",
-    date: "Mars 2023 - Mai 2023",
-    description: `Développement d'un jeu Tower Defense en TypeScript et JavaScript.`,
-    skills: ["TypeScript", "JavaScript"]
+    title: 'User-Space Thread Library',
+    date: 'Mar 2024 – May 2024',
+    description: "Cooperative threading library in C, including x86-64 assembly context switching.",
+    skills: ['C', 'Concurrency', 'x86-64'],
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=960&q=60',
+    theme: 'Dev'
   },
   {
-    title: "Airfoil Refinement and Modelling, Pressure Mapping (Python)",
-    date: "Avr. 2023",
-    description: `Projet de modélisation et affinage de profils aérodynamiques, avec cartographie de pression.`,
-    skills: ["Python"]
+    title: 'Student Car-Pooling App',
+    date: 'Oct 2023 – Dec 2023',
+    description: "PHP/MySQL platform for student carpooling with JWT authentication and Stripe payment integration.",
+    skills: ['PHP', 'MySQL', 'JWT'],
+    image: carpooling,
+    theme: 'Dev'
   },
   {
-    title: "Image Compression using SVD Factorisation (Python)",
-    date: "Mars 2023",
-    description: `Compression d'images par factorisation SVD.`,
-    skills: ["Python"]
+    title: 'Smart Intersections (Android)',
+    date: '—',
+    description: "Android app using Bordeaux open-data to secure traffic intersections with Firebase Realtime DB.",
+    skills: ['Android', 'Firebase', 'Open Data'],
+    image: zfe,
+    theme: 'Dev'
   },
   {
-    title: "Mansuba Game Development (C Language)",
-    date: "Oct. 2022 - Janv. 2023",
-    description: `Projet de jeu basé sur une version modifiée du jeu chinois Mansuba.`,
-    skills: ["C"]
+    title: 'The Game of the Amazons',
+    date: 'Feb 2023 – May 2023',
+    description: "Implementation of the Game of the Amazons in C, with alpha-beta minimax AI and ncurses UI.",
+    skills: ['C', 'Minimax', 'ncurses'],
+    image: amazones,
+    theme: 'Games'
   },
   {
-    title: "TIPE : Quantum-Resistant ECC: Design and Evaluation",
-    date: "Déc. 2021 - Juin 2022",
-    description: `Développement d’un algorithme de chiffrement/déchiffrement basé sur la cryptographie sur courbes elliptiques, et évaluation de sa résistance aux attaques quantiques.`,
-    skills: ["Informatique quantique", "ECC", "Cryptographie à clé publique"]
+    title: 'Tower Defense (TS)',
+    date: 'Mar 2023 – May 2023',
+    description: "2D Tower Defense game built in TypeScript/JavaScript using the Canvas API and dynamic pathfinding.",
+    skills: ['TypeScript', 'Canvas API', 'Game Dev'],
+    image: towerdefense,
+    theme: 'Games'
   },
   {
-    title: "Smart Intersections - Sécurité routière et signalisation intelligente à Bordeaux",
-    date: "",
-    description: `Développement d’une application Android utilisant les données ouvertes pour améliorer la sécurité routière aux intersections critiques de Bordeaux.`,
-    skills: ["Applications mobiles", "Développement Android", "Android Studio", "Firebase", "Google Cloud Platform (GCP)"]
+    title: 'Mansuba Game (C)',
+    date: 'Oct 2022 – Jan 2023',
+    description: "Terminal-based adaptation of the Chinese game Mansuba with basic AI.",
+    skills: ['C', 'Game AI'],
+    image: mansuba,
+    theme: 'Games'
+  },
+  {
+    title: 'Go Game AI (Python)',
+    date: 'Jul 2024 – Sep 2024',
+    description: "Development of a Python AI to play the game of Go using Monte Carlo Tree Search and reinforcement learning.",
+    skills: ['Python', 'MCTS', 'Reinforcement Learning'],
+    image: gogame,
+    theme: 'AI'
   }
 ];
 
 
+// Define the order of themes for the main 2x2 matrix
+const themesOrder = ['Games', 'Dev', 'Cyber', 'Research (Quantum)', 'AI'];
+
+// Group projects by theme and limit to 4 for the nested 2x2 grid
+const themedProjects = themesOrder.reduce((acc, theme) => {
+  acc[theme] = allProjects.filter(p => p.theme === theme).slice(0, 4); // Take only the first 4 projects
+  return acc;
+}, {});
+
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Slightly increased stagger for bigger blocks
+      delayChildren: 0.2
+    }
+  }
+};
+
+const themeBlockVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.98 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+};
+
+// Variants for the individual project cards within the nested 2x2 grid
+const projectCardVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+};
+
+
+export default function Projects() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, threshold: 0.1 });
+  const [activeCard, setActiveCard] = useState(null);
+
+  /* One project card within a nested 2x2 grid */
+  const ProjectCard = ({ project, idx }) => (
+    <motion.div
+      variants={projectCardVariants}
+      className="relative h-48 rounded-xl overflow-hidden cursor-pointer group shadow-lg"
+      onClick={() => setActiveCard(activeCard === `${project.theme}-${idx}` ? null : `${project.theme}-${idx}`)}
+      onMouseEnter={() => setActiveCard(`${project.theme}-${idx}`)}
+      onMouseLeave={() => setActiveCard(null)}
+    >
+      {/* Background Image */}
+      <img
+        src={project.image}
+        alt={project.title}
+        className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 to-gray-900/80 group-hover:from-indigo-900/60 transition-colors duration-500" />
+
+      {/* Title & date */}
+      <div className="absolute bottom-3 left-3 right-3 z-10">
+        <h4 className="text-md font-semibold text-white leading-tight drop-shadow">
+          {project.title}
+        </h4>
+        <p className="text-xs text-gray-200">{project.date}</p>
+      </div>
+
+      {/* Details overlay */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={activeCard === `${project.theme}-${idx}` ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+        transition={{ duration: 0.2 }}
+        className="absolute inset-0 p-4 flex flex-col justify-center text-xs text-gray-200 backdrop-blur-sm bg-black/60 pointer-events-none"
+      >
+        <p className="mb-2 leading-snug max-h-24 overflow-y-auto scrollbar-hide">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-1">
+          {project.skills.map((skill, i) => (
+            <span
+              key={i}
+              className="text-[0.65rem] font-medium px-2 py-0.5 bg-indigo-300/30 text-indigo-100 rounded-full"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+
   return (
-    <section 
+    <section
       id="projects"
-      className="w-full py-20 px-4 sm:px-8 lg:px-16 bg-white dark:bg-[#01161E]"
       ref={ref}
+      className="w-full py-20 px-4 sm:px-8 lg:px-16 bg-white dark:bg-[#01161E]"
     >
       <motion.div
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate={isInView ? 'visible' : 'hidden'}
         variants={containerVariants}
         className="max-w-7xl mx-auto"
       >
-        {/* Section Header */}
-        <motion.div variants={itemVariants} className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black dark:text-white mb-2">Mes Projets</h2>
-          <div className="w-20 h-1 bg-indigo-400 dark:bg-indigo-400 rounded-full"></div>
+        {/* Section header */}
+        <motion.div variants={themeBlockVariants} className="mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black dark:text-white mb-2 inline-block">
+            My Projects
+          </h2>
+          <div className="mx-auto w-24 h-1 bg-indigo-500 rounded-full" />
         </motion.div>
 
-        {/* Projects Grid */}
-<motion.div 
-  variants={containerVariants}
-  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
->
-  {projects.map((project, idx) => (
-    <motion.div
-      key={idx}
-      variants={itemVariants}
-      className="flex flex-col h-full bg-white dark:bg-gray-800/80 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl"
-    >
-      {/* Contenu principal */}
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
-          {project.title}
-        </h3>
-
-        <p className="text-gray-600 dark:text-gray-300 mb-4 whitespace-pre-line flex-grow">
-          {project.description}
-        </p>
-
-        {/* Tags de compétences */}
-        <div className="mt-auto">
-          <div className="flex flex-wrap gap-2">
-            {project.skills.map((skill, idx) => (
-              <span
-                key={idx}
-                className="text-xs font-medium px-3 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 rounded-full"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+        {/* Main 2x2 Grid for Project Themes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> {/* Main 2x2 grid */}
+          {themesOrder.map((theme) => (
+            <motion.div
+              variants={themeBlockVariants} // Animation for the whole theme block
+              key={theme}
+              className="p-6 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-xl flex flex-col items-center border border-indigo-200 dark:border-indigo-700" // Styled theme container
+            >
+              <h3 className="text-2xl font-bold text-black dark:text-white mb-6 text-center">
+                {theme}
+              </h3>
+              
+              {/* Nested 2x2 Grid for Projects within this Theme */}
+              {themedProjects[theme]?.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full"> {/* Nested 2x2 grid for projects */}
+                  {themedProjects[theme].map((project, idx) => (
+                    <ProjectCard project={project} idx={idx} key={idx} />
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-600 dark:text-gray-400 text-center text-sm mt-4">No projects in this category yet, or more than 4 are present and only the first 4 are shown.</p>
+              )}
+            </motion.div>
+          ))}
         </div>
-      </div>
-    </motion.div>
-  ))}
-</motion.div>
-
       </motion.div>
     </section>
   );
-};
-
-export default Projects;
+}
