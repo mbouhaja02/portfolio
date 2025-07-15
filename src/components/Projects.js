@@ -11,18 +11,8 @@ import airfoil from '../assets/airfoil.png'
 import qiskit from '../assets/qiskit.png'
 import malware from '../assets/malware_detection.jpg'
 import gogame from '../assets/Go_game.jpg'
-/**
- * --------------------------------------------------------------------
- * Projects – Nested 2x2 Matrix Design
- * --------------------------------------------------------------------
- * ▸ Main 2x2 grid for themes (Games, Dev, Cyber, Research).
- * ▸ Within each theme, a nested 2x2 grid displays up to 4 projects.
- * ▸ Projects are displayed clearly without internal scrolling for visibility.
- * ▸ Each card uses an Unsplash hero image + zoom-in effect.
- * ▸ Hover OR click ➜ details overlay with description & skills.
- * ▸ Dark-mode ready, framer-motion animations.
- * --------------------------------------------------------------------
- */
+import p2p from '../assets/ptwop.png';
+
 
 const allProjects = [
   {
@@ -136,16 +126,23 @@ const allProjects = [
     skills: ['Python', 'MCTS', 'Reinforcement Learning'],
     image: gogame,
     theme: 'AI'
-  }
+  },
+  {
+  title: 'P2P Communication System (Java/C)',
+  date: 'Apr 2024 – Jun 2024',
+  description: "Designed and implemented a Peer-to-Peer communication system with a central server in Java and multiple clients in C, supporting message broadcasting and file exchange.",
+  skills: ['Java', 'C', 'Sockets', 'P2P Networking'],
+  image: p2p, 
+  theme: 'Dev'
+}
+
 ];
 
 
-// Define the order of themes for the main 2x2 matrix
-const themesOrder = ['Games', 'Dev', 'Cyber', 'Research (Quantum)', 'AI'];
+const themesOrder = ['Games', 'Dev', 'Cyber', 'Research (Quantum)', 'AI', 'Other projects'];
 
-// Group projects by theme and limit to 4 for the nested 2x2 grid
 const themedProjects = themesOrder.reduce((acc, theme) => {
-  acc[theme] = allProjects.filter(p => p.theme === theme).slice(0, 4); // Take only the first 4 projects
+  acc[theme] = allProjects.filter(p => p.theme === theme).slice(0, 4); 
   return acc;
 }, {});
 
@@ -155,7 +152,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15, // Slightly increased stagger for bigger blocks
+      staggerChildren: 0.15, 
       delayChildren: 0.2
     }
   }
@@ -174,7 +171,6 @@ const themeBlockVariants = {
     }
 };
 
-// Variants for the individual project cards within the nested 2x2 grid
 const projectCardVariants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: {
@@ -193,7 +189,6 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
   const [activeCard, setActiveCard] = useState(null);
 
-  /* One project card within a nested 2x2 grid */
   const ProjectCard = ({ project, idx }) => (
     <motion.div
       variants={projectCardVariants}
