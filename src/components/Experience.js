@@ -77,18 +77,17 @@ const Experience = () => {
     },
     {
       id: 2,
-      title: "Développeur d'application mobile et systèmes intelligents",
-      date: "oct. 2024 - janv. 2025 · 4 mois",
+      title: "Mobile Application Developer and Smart Systems",
+      date: "Oct. 2024 – Jan. 2025 · 4 months",
       company: "R3 MOB",
       location: "Bordeaux, Nouvelle-Aquitaine, France",
       imageUrl: r3mob,
-      summary: `Développement d'une application mobile pour le guidage de stationnement. Intégration des communications C-ITS et optimisation du trafic pour les ZFE.`,
-      // Added tasks for this entry (4 simple ones)
+      summary: `Development of a mobile application for parking guidance. Integration of C-ITS communications and traffic optimization for LEZ (Low Emission Zones).`,
       tasks: [
-        "Développement d'une application mobile de guidage.",
-        "Intégration des communications C-ITS.",
-        "Optimisation du trafic pour les ZFE.",
-        "Conception de l'interface utilisateur mobile."
+        "Developed a mobile guidance application.",
+        "Integrated C-ITS communications.",
+        "Optimized traffic flow for LEZ areas.",
+        "Designed the mobile user interface."
       ],
       techImages: [],
       skills: [
@@ -97,18 +96,17 @@ const Experience = () => {
     },
     {
       id: 3,
-      title: "Stagiaire",
-      date: "juin 2024 - sept. 2024 · 4 mois",
-      company: "CNRS - Centre national de la recherche scientifique · Stage",
-      location: "Talence, Nouvelle-Aquitaine, France · Sur site",
+      title: "Intern",
+      date: "Jun. 2024 – Sept. 2024 · 4 months",
+      company: "CNRS - National Center for Scientific Research · Internship",
+      location: "Talence, Nouvelle-Aquitaine, France · On-site",
       imageUrl: cnrs,
-      summary: `Contribution à un projet d'inspection non-destructive (NDI) en collaboration avec des partenaires industriels. Développement de workflows pour le logiciel ATHENA (gestion des données scientifiques), conception d’une interface web, traitement de signaux capteurs (3D laser, ultrasons, THz, thermographie), fusion de données multisensor et application d’algorithmes de machine learning pour la détection de défauts.`,
-      // Added tasks for this entry (4 simple ones)
+      summary: `Contributed to a Non-Destructive Inspection (NDI) project in collaboration with industrial partners. Developed workflows for the ATHENA software (scientific data management), designed a web interface, processed sensor signals (3D laser, ultrasound, THz, thermography), performed multisensor data fusion, and applied machine learning algorithms for defect detection.`,
       tasks: [
-        "Développement de workflows pour ATHENA (NDI).",
-        "Conception d'interface web pour la gestion de données.",
-        "Traitement de signaux capteurs (3D, ultrasons).",
-        "Application d'algorithmes de Machine Learning."
+        "Developed workflows for ATHENA (NDI).",
+        "Designed web interface for data management.",
+        "Processed sensor signals (3D, ultrasound).",
+        "Applied Machine Learning algorithms."
       ],
       techImages: [],
       skills: [
@@ -118,15 +116,14 @@ const Experience = () => {
     {
       id: 4,
       title: "Data Science Research Collaborator",
-      date: "déc. 2023 - mai 2024 · 6 mois",
-      company: "Laboratoire Bordelais de Recherche en Informatique (LaBRI)",
+      date: "Dec. 2023 – May 2024 · 6 months",
+      company: "LaBRI - Bordeaux Computer Science Research Laboratory",
       location: "Talence, Nouvelle-Aquitaine, France",
       imageUrl: labri,
-      summary: `Engagé dans un projet de recherche au LaBRI dans le cadre de mon parcours académique à l'ENSEIRB-MATMECA. Mise en œuvre de stratégies pour la comparaison de matrices de confusion en apprentissage supervisé.`,
-      // Added tasks for this entry (2 simple ones, demonstrating flexibility)
+      summary: `Involved in a research project at LaBRI as part of my academic program at ENSEIRB-MATMECA. Implemented strategies for comparing confusion matrices in supervised learning.`,
       tasks: [
-        "Recherche sur la comparaison de matrices de confusion.",
-        "Implémentation de stratégies en apprentissage supervisé."
+        "Researched confusion matrix comparison methods.",
+        "Implemented strategies for supervised learning."
       ],
       techImages: [],
       skills: [
@@ -134,6 +131,7 @@ const Experience = () => {
       ]
     }
   ];
+
 
   return (
     <section
@@ -204,44 +202,44 @@ const Experience = () => {
                         {/* Tâches organisées en grille de 2 colonnes (ONLY if tasks array is not empty) */}
                         {experience.tasks && experience.tasks.length > 0 && (
                           <div className="mt-5">
-                              <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">Key Responsibilities:</h4>
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                  {experience.tasks.map((task, index) => (
-                                      <motion.div
-                                          key={index}
-                                          initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                                          animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-                                          transition={{ delay: 0.3 + index * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                                          className="flex items-start gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200"
-                                      >
-                                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-lg">
-                                              ✔
-                                          </div>
-                                          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed flex-grow">{task}</p>
-                                      </motion.div>
-                                  ))}
-                              </div>
+                            <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">Key Responsibilities:</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              {experience.tasks.map((task, index) => (
+                                <motion.div
+                                  key={index}
+                                  initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                                  animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                                  transition={{ delay: 0.3 + index * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                                  className="flex items-start gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200"
+                                >
+                                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-lg">
+                                    ✔
+                                  </div>
+                                  <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed flex-grow">{task}</p>
+                                </motion.div>
+                              ))}
+                            </div>
                           </div>
                         )}
 
                         {/* Skills as badges (ONLY if skills array is not empty) */}
                         {experience.skills && experience.skills.length > 0 && (
-                            <div className="mt-5">
-                                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">Skills:</h4>
-                                <div className="flex flex-wrap gap-2">
-                                    {experience.skills.map((skill, index) => (
-                                        <motion.span
-                                            key={index}
-                                            initial={{ opacity: 0, scale: 0.8 }}
-                                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                                            transition={{ delay: 0.4 + index * 0.03, duration: 0.3 }}
-                                            className="inline-block bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 text-xs font-semibold px-3 py-1 rounded-full shadow-sm"
-                                        >
-                                            {skill}
-                                        </motion.span>
-                                    ))}
-                                </div>
+                          <div className="mt-5">
+                            <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">Skills:</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {experience.skills.map((skill, index) => (
+                                <motion.span
+                                  key={index}
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                                  transition={{ delay: 0.4 + index * 0.03, duration: 0.3 }}
+                                  className="inline-block bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 text-xs font-semibold px-3 py-1 rounded-full shadow-sm"
+                                >
+                                  {skill}
+                                </motion.span>
+                              ))}
                             </div>
+                          </div>
                         )}
                       </div>
                     </div>

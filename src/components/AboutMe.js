@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import pdp from '../assets/orange_image_of_me.jpg'; // Your profile picture
+import pdp from '../assets/portfolio_image2.jpg'; // Your profile picture
 
 /**
  * --------------------------------------------------------------------

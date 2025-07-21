@@ -15,20 +15,21 @@ const formations = [
     logo: enseirbMatmeca_logo,
     banner: enseirbMatmeca_photo,
     institution: "ENSEIRB-MATMECA",
-    diplome: "Diplôme d'ingénieur, Informatique",
-    periode: "2022 - 2025",
-    competences: "Ingénierie logicielle, IA, DevOps",
+    diplome: "Engineering Degree, Computer Science",
+    periode: "2022 – 2025",
+    competences: "Software Engineering, AI, DevOps",
   },
   {
     id: 2,
     logo: cpgeMoulayYoussef_logo,
     banner: cpgeMoulayYoussef_photo,
     institution: "CPGE Moulay Youssef",
-    diplome: "Classe Prépa MP*",
-    periode: "sept. 2020 - juil. 2022",
-    competences: "Maths, Physique, Sciences de l'ingénieur",
+    diplome: "Preparatory Class MP* (Maths/Physics Track)",
+    periode: "Sep. 2020 – Jul. 2022",
+    competences: "Mathematics, Physics, Engineering Sciences",
   },
 ];
+
 
 const FormationSection = () => {
   const ref = useRef(null);
@@ -75,7 +76,7 @@ const FormationSection = () => {
         {/* En‑tête */}
         <motion.div variants={itemVariants} className="mb-16 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-black dark:text-white mb-2">
-            Parcours Académique
+            Academic Background
           </h2>
           <div className="mx-auto w-24 h-1 bg-indigo-400 rounded-full" />
         </motion.div>

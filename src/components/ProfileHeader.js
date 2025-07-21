@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { FaLinkedin, FaGithub, FaFilePdf } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import image1 from '../assets/me.jpeg';
+import image1 from '../assets/portfolio_image2.jpg';
 
 const ProfileHeader = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div 
+    <div
       className="px-4 sm:px-8 lg:px-32 py-16 lg:pt-[120px]"
       style={{
         opacity: 0,
         animation: "fadeIn 0.8s ease-out forwards"
       }}
     >
-      <div 
+      <div
         className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-6 p-6 bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl shadow-xl dark:shadow-indigo-500/10 border border-gray-100 dark:border-gray-800"
         style={{
           transform: "translateY(20px)",
@@ -35,14 +35,14 @@ const ProfileHeader = () => {
               className="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-[128px] h-[128px] sm:w-[150px] sm:h-[150px] md:w-[180px] md:h-[180px] border-4"
               style={{
                 backgroundImage:
-                   `url(${image1})`,
+                  `url(${image1})`,
                 borderColor: isHovered ? "#6366f1" : "#4f46e5",
                 transform: isHovered ? "rotate(5deg) scale(1.05)" : "rotate(0) scale(1)",
                 transition: "all 0.3s ease-out",
                 boxShadow: isHovered ? "0 10px 25px -5px rgba(99, 102, 241, 0.4)" : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
               }}
             />
-            <div 
+            <div
               className="absolute inset-0 rounded-full flex items-center justify-center"
               style={{
                 background: "linear-gradient(135deg, rgba(99, 102, 241, 0.7), rgba(79, 70, 229, 0.7))",
@@ -54,7 +54,7 @@ const ProfileHeader = () => {
             </div>
           </div>
 
-          <div 
+          <div
             className="flex flex-col justify-center text-center sm:text-left"
             style={{
               opacity: 0,
@@ -65,11 +65,11 @@ const ProfileHeader = () => {
               Mohammed Bouhaja
             </p>
             <p className="text-indigo-600 dark:text-indigo-400 text-sm sm:text-base mt-2">
-              Développement Logiciel | Passionné par la Cybersécurité (1% THM) et l'Informatique Quantique | CTF Player
+              Software Engineer | Passionate about Cybersecurity (Top 1% on THM) and Quantum Computing | CTF Player
             </p>
-            
+
             {/* Social Icons */}
-            <div 
+            <div
               className="flex justify-center sm:justify-start gap-4 mt-4"
               style={{
                 opacity: 0,
@@ -115,20 +115,19 @@ const ProfileHeader = () => {
         </div>
 
         {/* Buttons Section */}
-        <div 
+        <div
           className="flex flex-col sm:flex-row gap-4 sm:w-auto w-full"
           style={{
             opacity: 0,
             animation: "fadeIn 0.6s ease-out forwards 0.8s"
           }}
         >
-          <a 
-            href="https://drive.google.com/file/d/1Nx_dcgNkEgc3DtD3zWflzl9pOWwY8fFs/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
+          <a
+            href="./../assets/Cv_BOUHAJA_Mohammed_portfolio.pdf"
+            download="Cv_BOUHAJA_Mohammed.pdf"
           >
             <button
-              className="flex items-center justify-center gap-2 rounded-xl h-12 px-6 text-white text-sm font-bold leading-normal w-full sm:w-auto"
+              className="flex items-center justify-center gap-2 rounded-xl h-14 px-6 text-white text-sm font-bold leading-normal w-full sm:w-auto"
               style={{
                 background: "linear-gradient(135deg, #4f46e5, #6366f1)",
                 transition: "all 0.3s ease",
@@ -144,10 +143,11 @@ const ProfileHeader = () => {
               }}
             >
               <FaFilePdf />
-              <span className="truncate">Télécharger CV</span>
+              <span className="truncate">Download CV</span>
             </button>
           </a>
-          
+
+
           <a
             href="mailto:your-email@example.com"
           >
@@ -175,7 +175,7 @@ const ProfileHeader = () => {
           </a>
         </div>
       </div>
-      
+
       {/* CSS Animations */}
       <style jsx>{`
         @keyframes fadeIn {
