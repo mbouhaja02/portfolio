@@ -12,6 +12,9 @@ import qiskit from '../assets/qiskit.png'
 import malware from '../assets/malware_detection.jpg'
 import gogame from '../assets/Go_game.jpg'
 import p2p from '../assets/ptwop.png';
+import aiImageDetection from '../assets/ai_image_detection.jpg';
+import fakeAudioDetection from '../assets/fake_audio.jpg';
+import chatbotRAG from '../assets/chatbot.png';
 
 
 const allProjects = [
@@ -22,6 +25,30 @@ const allProjects = [
     skills: ['Python', 'Scikit-learn', 'Cyber Security'],
     image: malware,
     theme: 'Cyber'
+  },
+  {
+    title: 'AI-Generated Image Detection',
+    date: 'Mar 2025 – Aug 2025',
+    description: "Fine-tuned CLIP and PRNU-based models to detect deepfake and AI-generated images from diffusion models (e.g., DALL·E, Stable Diffusion).",
+    skills: ['PyTorch', 'CLIP', 'Computer Vision'],
+    image: aiImageDetection,
+    theme: 'AI'
+  },
+  {
+    title: 'Synthetic Audio Deepfake Detection',
+    date: 'Juin 2025 – Aug 2025',
+    description: "Built a detection system for AI-generated voices using spectrogram analysis, CNN models, and the FakeSound dataset.",
+    skills: ['Audio Processing', 'CNN', 'FakeSound'],
+    image: fakeAudioDetection,
+    theme: 'AI'
+  },
+  {
+    title: 'LLM-based Chatbot with RAG',
+    date: 'Jul 2024 – Sep 2024',
+    description: "Implemented a retrieval-augmented chatbot using LangChain and OpenAI GPT models, capable of answering from custom PDF and web sources.",
+    skills: ['LangChain', 'OpenAI', 'RAG'],
+    image: chatbotRAG,
+    theme: 'AI'
   },
   {
     title: 'Post-Quantum ECC (TIPE)',

@@ -11,6 +11,7 @@ import {
   faCss3Alt,
   faGitAlt
 } from '@fortawesome/free-brands-svg-icons';
+
 import {
   faCloud,
   faLock,
@@ -20,8 +21,22 @@ import {
   faProjectDiagram,
   faCogs,
   faMicrochip,
-  faGlobe
+  faGlobe,
+  faTerminal,
+  faChartBar,
+  faCamera,
+  faCode,
+  faLaptopCode,
+  faStickyNote,
+  faLinux,
+  faKey,
+  faBug,
+  faShieldAlt,
+  faNetworkWired,
+  faSearch,
+  faEyeSlash
 } from '@fortawesome/free-solid-svg-icons';
+
 
 /* --------------------------------------------------
   SkillBar – single skill with animated progress bar
@@ -64,6 +79,10 @@ const SkillBar = ({ skill, percentage, icon, variants }) => {
   );
 };
 
+
+
+
+
 /* --------------------------------------------------
   Category definitions
 -------------------------------------------------- */
@@ -82,43 +101,96 @@ const categories = [
     ]
   },
   {
-    name: 'Cloud & DevOps',
+    name: 'Cloud Platforms & Services',
     skills: [
-      { skill: 'Git & GitHub', percentage: 75, icon: faGitAlt },
-      { skill: 'Firebase', percentage: 60, icon: faCloud },
-      { skill: 'Cloud Computing (GCP)', percentage: 60, icon: faCloud },
-      { skill: 'Backend', percentage: 70, icon: faCogs }
+      { skill: 'Google Cloud Platform (GCP)', percentage: 70, icon: faCloud },
+      { skill: 'Firebase (Auth, Firestore, Functions)', percentage: 65, icon: faCloud },
+      { skill: 'Vertex AI', percentage: 65, icon: faCloud },
+      { skill: 'TPU (GCP)', percentage: 60, icon: faCloud },
+      { skill: 'Cloud Storage (GCP)', percentage: 65, icon: faCloud },
+      { skill: 'Microsoft Azure', percentage: 55, icon: faCloud },
+      { skill: 'Azure ML & Blob Storage', percentage: 55, icon: faCloud }
     ]
   },
   {
-    name: 'Data & AI',
+    name: 'DevOps & Tools',
     skills: [
+      { skill: 'Git & GitHub', percentage: 75, icon: faGitAlt },
+      { skill: 'GitLab CI/CD', percentage: 70, icon: faCogs },
+      { skill: 'OpenShift', percentage: 65, icon: faCogs },
+      { skill: 'Docker', percentage: 70, icon: faCogs },
+      { skill: 'Linux / Bash', percentage: 80, icon: faTerminal }
+    ]
+  },
+  {
+    name: 'Artificial Intelligence & Data',
+    skills: [
+      { skill: 'Machine Learning (scikit-learn)', percentage: 80, icon: faBrain },
+      { skill: 'Deep Learning (PyTorch, TensorFlow)', percentage: 75, icon: faBrain },
+      { skill: 'Hugging Face Transformers', percentage: 65, icon: faBrain },
+      { skill: 'Web Scraping (BeautifulSoup, Selenium)', percentage: 65, icon: faGlobe },
       { skill: 'SQL', percentage: 75, icon: faDatabase },
-      { skill: 'Machine Learning', percentage: 80, icon: faBrain },
-      { skill: 'Web Scraping', percentage: 65, icon: faGlobe }
+      { skill: 'Pandas / NumPy', percentage: 80, icon: faChartBar },
+      { skill: 'OpenCV', percentage: 65, icon: faCamera }
+    ]
+  },
+  {
+    name: 'Mobile Development',
+    skills: [
+      { skill: 'Flutter', percentage: 70, icon: faMobileAlt },
+      { skill: 'React Native', percentage: 65, icon: faMobileAlt },
+      { skill: 'Kotlin (Android)', percentage: 60, icon: faMobileAlt },
+      { skill: 'Swift (iOS)', percentage: 60, icon: faMobileAlt }
+    ]
+  },
+  {
+    name: 'Databases',
+    skills: [
+      { skill: 'PostgreSQL', percentage: 75, icon: faDatabase },
+      { skill: 'MongoDB', percentage: 70, icon: faDatabase },
+      { skill: 'Firebase Firestore', percentage: 65, icon: faDatabase },
+      { skill: 'Redis', percentage: 60, icon: faDatabase },
+      { skill: 'MySQL', percentage: 70, icon: faDatabase },
+      { skill: 'SQLite', percentage: 65, icon: faDatabase }
+    ]
+  },
+  {
+    name: 'Tools & Environments',
+    skills: [
+      { skill: 'Git', percentage: 80, icon: faGitAlt },
+      { skill: 'VS Code', percentage: 85, icon: faCode },
+      { skill: 'Jupyter', percentage: 75, icon: faLaptopCode },
+      { skill: 'Notion', percentage: 65, icon: faStickyNote },
+      { skill: 'Linux (Ubuntu, Debian)', percentage: 80, icon: faTerminal },
+      { skill: 'Bash / Zsh', percentage: 75, icon: faTerminal },
+      { skill: 'Conda / pip / virtualenv', percentage: 70, icon: faCogs },
+      { skill: 'SSH / SCP', percentage: 70, icon: faKey },
+      { skill: 'GDB', percentage: 60, icon: faBug }
     ]
   },
   {
     name: 'Cybersecurity',
     skills: [
-      { skill: 'Cybersecurity', percentage: 70, icon: faLock },
-      { skill: 'Fraud Detection', percentage: 60, icon: faLock }
+      { skill: 'Metasploit', percentage: 60, icon: faShieldAlt },
+      { skill: 'Burp Suite', percentage: 65, icon: faShieldAlt },
+      { skill: 'Wireshark', percentage: 70, icon: faNetworkWired },
+      { skill: 'Nmap', percentage: 65, icon: faSearch },
+      { skill: 'Steganography tools', percentage: 60, icon: faEyeSlash },
+      { skill: 'JWT / OAuth2', percentage: 65, icon: faKey },
+      { skill: 'Web pentesting (XSS, SQLi, CSRF)', percentage: 70, icon: faBug },
+      { skill: 'TLS / HTTPS', percentage: 60, icon: faLock },
+      { skill: 'Post-Quantum Cryptography', percentage: 60, icon: faProjectDiagram }
     ]
   },
   {
     name: 'Quantum & Emerging Tech',
     skills: [
       { skill: 'Quantum Computing (Qiskit)', percentage: 60, icon: faProjectDiagram },
-      { skill: 'Robotics', percentage: 65, icon: faMicrochip }
-    ]
-  },
-  {
-    name: 'Mobile Development',
-    skills: [
-      { skill: 'Mobile Development', percentage: 75, icon: faMobileAlt }
+      { skill: 'Robotics & IoT', percentage: 65, icon: faMicrochip }
     ]
   }
 ];
+
 
 /* --------------------------------------------------
   Main component – two‑row / three‑column category grid
